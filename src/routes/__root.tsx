@@ -81,8 +81,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "width=device-width, initial-scale=1, viewport-fit=cover",
       },
-      { title: "MiniFAT – Smart Dossier" },
-      { name: "description", content: "SMART DOSSIER, READY FOR SITE." },
+      { title: "PedFlow - Smart Launcher" },
+      { name: "description", content: "Launcher per il programma PedFlow e gestione dei flussi di attivazione" },
       { name: "theme-color", content: "#0a2a4a" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "mobile-web-app-capable", content: "yes" },
@@ -90,18 +90,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "apple-mobile-web-app-status-bar-style",
         content: "black-translucent",
       },
-      { name: "apple-mobile-web-app-title", content: "MiniFAT" },
-      { name: "application-name", content: "MiniFAT" },
+      { name: "apple-mobile-web-app-title", content: "PedFlow" },
+      { name: "application-name", content: "PedFlow" },
       { name: "msapplication-TileColor", content: "#0a2a4a" },
       { name: "msapplication-TileImage", content: "/icons/icon-144x144.png" },
-      { property: "og:title", content: "MiniFAT – Smart Dossier" },
-      { property: "og:description", content: "SMART DOSSIER, READY FOR SITE." },
+      { property: "og:title", content: "PedFlow - Smart Launcher" },
+      { property: "og:description", content: "Launcher per il programma PedFlow e gestione dei flussi di attivazione" },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/icons/icon-512x512.png" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "MiniFAT – Smart Dossier" },
-      { name: "twitter:description", content: "SMART DOSSIER, READY FOR SITE." },
-      { name: "twitter:image", content: "/icons/icon-512x512.png" },
+      { name: "twitter:title", content: "PedFlow - Smart Launcher" },
+      { name: "twitter:description", content: "Launcher per il programma PedFlow e gestione dei flussi di attivazione" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -118,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="it">
       <head>
         <HeadContent />
       </head>
