@@ -1,7 +1,7 @@
 {
-  "name": "MiniFAT – Smart Dossier",
-  "short_name": "MiniFAT",
-  "description": "SMART DOSSIER, READY FOR SITE.",
+  "name": "PedFlow - Smart Launcher",
+  "short_name": "PedFlow",
+  "description": "Launcher per il programma PedFlow e gestione dei flussi di attivazione",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

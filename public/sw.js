@@ -1,6 +1,6 @@
 // MiniFAT PWA service worker — network-first with offline cache fallback.
 // When duplicating this template for a new SaaS, bump CACHE_NAME.
-const CACHE_NAME = "minifat-v1";
+const CACHE_NAME = "pedflow-v1";
 const PRECACHE_URLS = [
   "/",
   "/manifest.json",
