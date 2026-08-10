@@ -1,4 +1,4 @@
-// MiniFAT PWA service worker — network-first with offline cache fallback.
+// PedFlow PWA service worker — network-first with offline cache fallback.
 // When duplicating this template for a new SaaS, bump CACHE_NAME.
 const CACHE_NAME = "pedflow-v1";
 const PRECACHE_URLS = [
