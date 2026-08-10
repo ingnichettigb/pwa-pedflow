@@ -1,10 +1,10 @@
-# PWA Template — MiniFAT
+# PWA Template — PedFlow
 
 Reusable PWA landing/redirect template for SaaS apps. Built to deploy as a
 static site on Cloudflare Pages (HTTPS required for PWA install).
 
-Current configuration: **MiniFAT – Smart Dossier**
-→ https://002mnfat.corporateboostservice.eu
+Current configuration: **PedFlow – Smart Launcher**
+→ https://011pedflow.corporateboostservice.eu
 
 ## How to duplicate this template for a new SaaS
 
