@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
-const SAAS_URL = "https://011pedflow.corporateboostservice.eu";
+const SAAS_URL = "https://011-pedflow.corporateboostservice.eu";
 const APP_NAME = "PedFlow";
 const APP_FULL_NAME = "PedFlow - Smart Launcher";
 const SUBTITLE_IT = "Launcher per il programma PedFlow e gestione dei flussi di attivazione";
