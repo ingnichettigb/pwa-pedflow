@@ -4,7 +4,7 @@ Reusable PWA landing/redirect template for SaaS apps. Built to deploy as a
 static site on Cloudflare Pages (HTTPS required for PWA install).
 
 Current configuration: **PedFlow – Smart Launcher**
-→ https://011pedflow.corporateboostservice.eu
+→ https://011-pedflow.corporateboostservice.eu
 
 ## How to duplicate this template for a new SaaS
 
