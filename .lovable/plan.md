@@ -1,19 +1,34 @@
-## Nota
-"MiniFAT" è un nome proprio del brand → non va MAI tradotto (né in italiano né in altre lingue). Resta sempre "MiniFAT", mai "MiniGRASSO".
+## Ribranding MiniFAT → PedFlow (riferimenti residui)
 
-## Verifica codice attuale
-In `src/routes/index.tsx` il nome è già usato come brand non tradotto:
-- Logo wordmark: "Mini" + "FAT"
-- H1: "MiniFAT – Smart Dossier"
-- CTA: "Open MiniFAT / Apri MiniFAT →"
-- Prompt install EN/IT: entrambi usano "MiniFAT"
-- Footer: "© {year} MiniFAT"
+Sostituire gli ultimi riferimenti testuali a "MiniFAT"/"mnfat"/"002mnfat" rimasti dal clone del template. Solo testo, nessuna modifica alla struttura del launcher.
 
-Nessuna stringa traduce "FAT" → "Grasso". Il codice è già corretto.
+### Modifiche
 
-## Azione
-1. Salvare una memoria di progetto `mem://constraints/brand-name.md` con la regola: "MiniFAT è brand name, non tradurre mai (no MiniGRASSO). Vale per tutte le lingue, tutti i futuri SaaS clonati da questo template userano la stessa regola con il loro nome."
-2. Aggiungere riga Core in `mem://index.md`: "Brand names (es. MiniFAT) non si traducono mai in nessuna lingua."
-3. Nessuna modifica al codice — già conforme.
+**1. `src/routes/index.tsx` — riga 4**
+- `const SAAS_URL = "https://002mnfat.corporateboostservice.eu";`
+  → `const SAAS_URL = "https://011pedflow.corporateboostservice.eu";`
 
-Confermi così procedo?
+**2. `README.md` — righe 1 e 6-7**
+- Riga 1: `# PWA Template — MiniFAT` → `# PWA Template — PedFlow`
+- Riga 6: `Current configuration: **MiniFAT – Smart Dossier**` → `Current configuration: **PedFlow – Smart Launcher**`
+- Riga 7: `→ https://002mnfat.corporateboostservice.eu` → `→ https://011pedflow.corporateboostservice.eu`
+
+**3. `public/sw.js` — riga 1 (commento)**
+- `// MiniFAT PWA service worker —` → `// PedFlow PWA service worker —`
+- `CACHE_NAME` è già `pedflow-v1`: non si tocca.
+
+### File NON toccati (già corretti, verificati)
+- `public/manifest.json` — già "PedFlow"
+- `src/routes/__root.tsx` — meta tag già "PedFlow"
+- Resto del launcher (struttura, stili, animazioni, icone, route)
+
+### Riepilogo occorrenze trovate (ricerca case-insensitive di `minifat|mnfat|002mnfat` su tutto il progetto, esclusi node_modules/dist)
+| File | Riga | Contenuto attuale |
+| --- | --- | --- |
+| README.md | 1 | `# PWA Template — MiniFAT` |
+| README.md | 6 | `Current configuration: **MiniFAT – Smart Dossier**` |
+| README.md | 7 | `→ https://002mnfat.corporateboostservice.eu` |
+| public/sw.js | 1 | `// MiniFAT PWA service worker — ...` |
+| src/routes/index.tsx | 4 | `const SAAS_URL = "https://002mnfat.corporateboostservice.eu";` |
+
+Totale: 5 occorrenze in 3 file. Nessun riferimento nascosto in meta tag, alt text o altri commenti.
