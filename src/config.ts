@@ -16,11 +16,11 @@ export type Lang = (typeof SUPPORTED_LANGS)[number];
 
 export const APP_CONFIG = {
   /* ---------- Identità del prodotto ---------- */
-  codePrefix: "040",
-  codeName: "RegistroWEB",
-  shortName: "RegistroWEB",
-  fullName: "040RegistroWEB – Registro Siti Web Aziendali",
-  saasUrl: "https://040registroweb.corporateboostservice.eu",
+  codePrefix: "011",
+  codeName: "-pedflow",
+  shortName: "011-pedflow",
+  fullName: "011-pedflow – Smart Launcher",
+  saasUrl: "https://011-pedflow.corporateboostservice.eu",
 
   /* ---------- Marchio / editore ---------- */
   kicker: "CORPORATE BOOST SERVICE",
@@ -38,36 +38,36 @@ export const APP_CONFIG = {
    * description = frase per meta description e manifest */
   texts: {
     it: {
-      tagline: "REGISTRO CREDENZIALI & SITI WEB AZIENDALI",
-      description: "Registro credenziali e siti web aziendali",
+      tagline: "LAUNCHER PEDFLOW E GESTIONE DEI FLUSSI DI ATTIVAZIONE",
+      description: "Launcher per il programma 011-pedflow e gestione dei flussi di attivazione",
     },
     en: {
-      tagline: "COMPANY WEB & CREDENTIALS REGISTRY",
-      description: "Registry of company websites and credentials",
+      tagline: "PEDFLOW LAUNCHER & ACTIVATION FLOW MANAGEMENT",
+      description: "Launcher for the 011-pedflow program and activation flow management",
     },
     es: {
-      tagline: "REGISTRO DE CREDENCIALES Y SITIOS WEB EMPRESARIALES",
-      description: "Registro de credenciales y sitios web de la empresa",
+      tagline: "LANZADOR PEDFLOW Y GESTIÓN DE FLUJOS DE ACTIVACIÓN",
+      description: "Lanzador del programa 011-pedflow y gestión de flujos de activación",
     },
     de: {
-      tagline: "REGISTER FÜR ZUGANGSDATEN & FIRMENWEBSITES",
-      description: "Register für Firmenwebsites und Zugangsdaten",
+      tagline: "PEDFLOW-LAUNCHER & AKTIVIERUNGSABLÄUFE",
+      description: "Launcher für das Programm 011-pedflow und Verwaltung der Aktivierungsabläufe",
     },
   } satisfies Record<Lang, { tagline: string; description: string }>,
 
   /* ---------- Testi disegnati nell'icona (uguali in tutte le lingue) ---------- */
   icon: {
-    top: "040", // grande, colore accent
-    mid: "WEB", // medio, colore testo
-    bottom: "REGISTRO SITI WEB", // piccolo, colore cyan, nella fascia in basso
+    top: "011", // grande, colore accent
+    mid: "PED", // medio, colore testo
+    bottom: "PEDFLOW", // piccolo, colore cyan, nella fascia in basso
   },
 
   /* ---------- Colori (da qui derivano icona, manifest e CSS) ---------- */
   colors: {
-    accent: "#b4ff3c", // colore primario (pulsante, numero, titoli)
-    cyan: "#00e5ff", // colore secondario (bordi, globo, kicker)
-    blue: "#0a2444", // blu profondo (pannelli, theme-color)
-    bg: "#060a12", // sfondo
+    accent: "#22d3ee", // colore primario (pulsante, numero, titoli)
+    cyan: "#67e8f9", // colore secondario (bordi, globo, kicker)
+    blue: "#0a2a4a", // blu profondo (pannelli, theme-color)
+    bg: "#06090f", // sfondo
     fg: "#f8fafc", // testo
   },
 
