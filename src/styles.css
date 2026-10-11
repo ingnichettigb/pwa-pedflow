@@ -1,3 +1,10 @@
+/*
+ * File: styles.css
+ * Percorso: src/styles.css
+ * Ultima modifica: 2026-10-11 (Revisione 03)
+ * Scopo: design system del lanciatore; i colori derivano dalle variabili
+ *        --cfg-* impostate da config.ts. Rispetta le safe area (iPhone/Android).
+ */
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -59,42 +66,59 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-launcher-grid: var(--launcher-grid);
+  --color-launcher-panel: var(--launcher-panel);
+  --color-launcher-cyan: var(--launcher-cyan);
+  --color-launcher-soft: var(--launcher-soft);
+  --font-sans: "Arial", "Helvetica Neue", sans-serif;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --radius: 0.5rem;
+
+  /*
+   * TOKEN DERIVATI DA src/config.ts
+   * I colori base (--cfg-accent, --cfg-cyan, --cfg-blue, --cfg-bg, --cfg-fg)
+   * sono impostati su <html> da src/routes/__root.tsx a partire da APP_CONFIG.colors.
+   * Qui non vanno scritti colori fissi del prodotto: si cambia solo config.ts.
+   */
+  --background: var(--cfg-bg);
+  --foreground: var(--cfg-fg);
+  --card: color-mix(in oklab, var(--cfg-blue) 50%, var(--cfg-bg));
+  --card-foreground: var(--cfg-fg);
+  --popover: color-mix(in oklab, var(--cfg-blue) 50%, var(--cfg-bg));
+  --popover-foreground: var(--cfg-fg);
+  --primary: var(--cfg-accent);
+  --primary-foreground: var(--cfg-bg);
+  --secondary: color-mix(in oklab, var(--cfg-blue) 70%, var(--cfg-bg));
+  --secondary-foreground: var(--cfg-fg);
+  --muted: color-mix(in oklab, var(--cfg-blue) 60%, var(--cfg-bg));
+  --muted-foreground: color-mix(in oklab, var(--cfg-fg) 62%, var(--cfg-blue));
+  --accent: var(--cfg-cyan);
+  --accent-foreground: var(--cfg-bg);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: color-mix(in oklab, color-mix(in oklab, var(--cfg-cyan) 30%, var(--cfg-blue)) 48%, transparent);
+  --input: color-mix(in oklab, color-mix(in oklab, var(--cfg-cyan) 30%, var(--cfg-blue)) 58%, transparent);
+  --ring: var(--cfg-accent);
+  --launcher-grid: color-mix(in oklab, var(--cfg-cyan) 7%, transparent);
+  --launcher-panel: color-mix(in oklab, color-mix(in oklab, var(--cfg-blue) 40%, var(--cfg-bg)) 94%, transparent);
+  --launcher-cyan: var(--cfg-cyan);
+  --launcher-soft: var(--muted-foreground);
+  --launcher-glow: color-mix(in oklab, var(--cfg-accent) 22%, transparent);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--cfg-fg);
+  --sidebar-primary: var(--cfg-accent);
+  --sidebar-primary-foreground: var(--cfg-bg);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--cfg-fg);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--cfg-accent);
 }
 
 .dark {
@@ -140,5 +164,161 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    margin: 0;
+  }
+}
+
+@layer components {
+  .launcher-shell {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:
+      calc(2rem + env(safe-area-inset-top, 0px))
+      calc(1.25rem + env(safe-area-inset-right, 0px))
+      calc(4.5rem + env(safe-area-inset-bottom, 0px))
+      calc(1.25rem + env(safe-area-inset-left, 0px));
+    isolation: isolate;
+  }
+
+  .launcher-grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(var(--launcher-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--launcher-grid) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  }
+
+  .launcher-card {
+    width: min(100%, 34rem);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: var(--launcher-panel);
+    box-shadow: 0 28px 90px oklch(0 0 0 / 45%);
+    padding: clamp(1.75rem, 7vw, 3.5rem);
+    text-align: center;
+  }
+
+  .launcher-mark {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1.75rem;
+    color: var(--foreground);
+    filter: drop-shadow(0 18px 24px oklch(0 0 0 / 38%));
+  }
+
+  .launcher-kicker {
+    margin: 0;
+    color: var(--launcher-cyan);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+  }
+
+  .launcher-title {
+    margin: 0;
+    color: var(--foreground);
+    font-size: clamp(2rem, 10vw, 3.1rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .launcher-title span {
+    color: var(--primary);
+    margin-right: 0.24em;
+  }
+
+  .launcher-rule {
+    width: 3.5rem;
+    height: 2px;
+    margin: 1.15rem auto 1.05rem;
+    background-color: var(--launcher-cyan);
+  }
+
+  .launcher-tagline {
+    margin: 0;
+    font-size: clamp(0.65rem, 2.8vw, 0.76rem);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.55;
+  }
+
+  .launcher-tagline-secondary { color: var(--launcher-soft); }
+  .launcher-tagline-primary { color: var(--primary); }
+
+  .install-panel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+    color: var(--launcher-cyan);
+  }
+
+  .install-panel > svg { width: 1.25rem; height: 1.25rem; flex: none; }
+  .install-title { margin: 0; color: var(--foreground); font-size: 0.85rem; font-weight: 800; }
+  .install-copy { margin: 0.2rem 0 0; color: var(--launcher-soft); font-size: 0.75rem; line-height: 1.45; }
+  .install-copy svg { display: inline; width: 0.85rem; height: 0.85rem; vertical-align: -0.12rem; }
+  .install-hint { margin: 0.45rem 0 0; color: var(--launcher-cyan); font-size: 0.72rem; line-height: 1.45; }
+  .install-hint strong { color: var(--primary); }
+
+  .installed-label { margin: 1.4rem 0 0; color: var(--launcher-soft); font-size: 0.75rem; }
+
+  .launcher-footer {
+    position: absolute;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--muted-foreground);
+    font-size: 0.68rem;
+  }
+
+  .launcher-footer p { margin: 0; }
+
+  .lang-switch { display: flex; gap: 0.25rem; }
+  .lang-switch button {
+    min-width: 2.1rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background: transparent;
+    padding: 0.2rem 0.4rem;
+    color: var(--muted-foreground);
+    font: inherit;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+  }
+  .lang-switch button:hover { color: var(--foreground); }
+  .lang-switch button[data-active="true"] {
+    border-color: var(--border);
+    color: var(--launcher-cyan);
+  }
+  .lang-switch button:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+}
+
+@media (max-width: 420px) {
+  .launcher-shell { justify-content: flex-start; padding-top: 1rem; }
+  .launcher-card { padding: 1.45rem 1.15rem; }
+  .launcher-mark { margin-bottom: 1.2rem; }
+  .install-panel { align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .launcher-card { animation: launcher-enter 520ms ease-out both; }
+  @keyframes launcher-enter {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
