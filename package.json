@@ -1,6 +1,6 @@
 {
   "//": "File: package.json | Percorso: package.json (radice del progetto) | Ultima modifica: 2026-10-11 (Revisione 03) | Scopo: dipendenze e script del lanciatore PWA base. Il nome va cambiato solo nel nuovo repository.",
-  "name": "pwa-011-pedflow",
+  "name": "pwa-011pedflow",
   "version": "0.3.0",
   "private": true,
   "sideEffects": false,

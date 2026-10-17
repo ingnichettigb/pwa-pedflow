@@ -17,10 +17,10 @@ export type Lang = (typeof SUPPORTED_LANGS)[number];
 export const APP_CONFIG = {
   /* ---------- Identità del prodotto ---------- */
   codePrefix: "011",
-  codeName: "-pedflow",
-  shortName: "011-pedflow",
-  fullName: "011-pedflow – Smart Launcher",
-  saasUrl: "https://011-pedflow.corporateboostservice.eu",
+  codeName: "pedflow",
+  shortName: "011pedflow",
+  fullName: "011pedflow – Smart Launcher",
+  saasUrl: "https://011pedflow.corporateboostservice.eu",
 
   /* ---------- Marchio / editore ---------- */
   kicker: "CORPORATE BOOST SERVICE",
@@ -39,19 +39,19 @@ export const APP_CONFIG = {
   texts: {
     it: {
       tagline: "LAUNCHER PEDFLOW E GESTIONE DEI FLUSSI DI ATTIVAZIONE",
-      description: "Launcher per il programma 011-pedflow e gestione dei flussi di attivazione",
+      description: "Launcher per il programma 011pedflow e gestione dei flussi di attivazione",
     },
     en: {
       tagline: "PEDFLOW LAUNCHER & ACTIVATION FLOW MANAGEMENT",
-      description: "Launcher for the 011-pedflow program and activation flow management",
+      description: "Launcher for the 011pedflow program and activation flow management",
     },
     es: {
       tagline: "LANZADOR PEDFLOW Y GESTIÓN DE FLUJOS DE ACTIVACIÓN",
-      description: "Lanzador del programa 011-pedflow y gestión de flujos de activación",
+      description: "Lanzador del programa 011pedflow y gestión de flujos de activación",
     },
     de: {
       tagline: "PEDFLOW-LAUNCHER & AKTIVIERUNGSABLÄUFE",
-      description: "Launcher für das Programm 011-pedflow und Verwaltung der Aktivierungsabläufe",
+      description: "Launcher für das Programm 011pedflow und Verwaltung der Aktivierungsabläufe",
     },
   } satisfies Record<Lang, { tagline: string; description: string }>,
 
